@@ -1,94 +1,100 @@
-import FoodCard from "./FoodCard";
+import FoodCardDestaque from "./FoodCardDestaque";
+import FoodCardGeral from "./FoodCardGeral";
+import VejaMaisButton from "./VejaMaisButton";
+import { acaiData, hamrburgerData, pizzaData } from "../mock/FoodMock";
 
 export default function CardapioSection() {
   return (
-    <div className="mx-auto container lg:px-0 px-4">
-      <h1 className="text-xl font-bold">Açai</h1>
-      <div className="flex gap-5 mt-2 overflow-x-auto pb-5">
-        <FoodCard
+    <div className="mx-auto container  2xl:px-22  px-4 pb-4">
+      <div className="flex justify-between items-center">
+        <h1 className="text-xl font-bold">Destaques da Semana</h1>
+        <VejaMaisButton />
+      </div>
+      <div className="flex gap-3 mt-2 overflow-x-auto pb-5">
+        <FoodCardDestaque
           name="Açai"
           description="Açai 500 Ml com leite ninho, leite condensado, morango, paçoca, granola, mousse de chocolate, calda, sorvete"
           price="R$5.99"
           imageUrl="/acai.jpeg"
         />
-        <FoodCard
+        <FoodCardDestaque
+          name="Pizza"
+          description="Delicious pizza with fresh ingredients"
+          price="R$5.99"
+          imageUrl="/pizza.jpg"
+        />
+        <FoodCardDestaque
+          name="Hambúrguer"
+          description="Delicious hamburger with fresh ingredients"
+          price="R$5.99"
+          imageUrl="/hamburguer.png"
+        />
+        <FoodCardDestaque
           name="Açai"
-          description="Delicious açai bowl with fresh fruits"
+          description="Açai 500 Ml com leite ninho, leite condensado, morango, paçoca, granola, mousse de chocolate, calda, sorvete"
           price="R$5.99"
           imageUrl="/acai.jpeg"
         />
-        <FoodCard
-          name="Açai"
-          description="Delicious açai bowl with fresh fruits"
+        <FoodCardDestaque
+          name="Pizza"
+          description="Delicious pizza with fresh ingredients"
           price="R$5.99"
-          imageUrl="/acai.jpeg"
+          imageUrl="/pizza.jpg"
         />
-        <FoodCard
-          name="Açai"
-          description="Delicious açai bowl with fresh fruits"
+        <FoodCardDestaque
+          name="Hambúrguer"
+          description="Delicious hamburger with fresh ingredients"
           price="R$5.99"
-          imageUrl="/acai.jpeg"
-        />
-        <FoodCard
-          name="Açai"
-          description="Delicious açai bowl with fresh fruits"
-          price="R$5.99"
-          imageUrl="/acai.jpeg"
-        />
-        <FoodCard
-          name="Açai"
-          description="Delicious açai bowl with fresh fruits"
-          price="R$5.99"
-          imageUrl="/acai.jpeg"
-        />
-        <FoodCard
-          name="Açai"
-          description="Delicious açai bowl with fresh fruits"
-          price="R$5.99"
-          imageUrl="/acai.jpeg"
+          imageUrl="/hamburguer.png"
         />
       </div>
-      <h1 className="text-xl font-bold">Pizza</h1>
-      <div className="flex gap-5 mt-2 overflow-x-auto pb-5">
-        <FoodCard
-          name="Pizza"
-          description="Delicious pizza with fresh ingredients"
-          price="R$5.99"
-          imageUrl="/pizza.jpg"
-        />
-        <FoodCard
-          name="Pizza"
-          description="Delicious pizza with fresh ingredients"
-          price="R$5.99"
-          imageUrl="/pizza.jpg"
-        />
-        <FoodCard
-          name="Pizza"
-          description="Delicious pizza with fresh ingredients"
-          price="R$5.99"
-          imageUrl="/pizza.jpg"
-        />
+      <div className="pt-6">
+        <h2 className="text-xl font-semibold">Açai</h2>
+        <div className="grid lg:grid-cols-2 items-center mt-2 gap-1 lg:gap-1 ">
+          {acaiData.map((item, index) => {
+            return (
+              <FoodCardGeral
+                key={index}
+                name={item.name}
+                description={item.description}
+                price={item.price}
+                imageUrl={item.imageUrl}
+              />
+            );
+          })}
+        </div>
       </div>
-      <h1 className="text-xl font-bold">Hambúrguer</h1>
-      <div className="flex gap-5 mt-2 overflow-x-auto pb-5">
-        <FoodCard
-          name="Hambúrguer"
-          description="Delicious hamburger with fresh ingredients"
-          price="R$5.99"
-          imageUrl="/hamburguer.png"
-        />
-        <FoodCard
-          name="Hambúrguer"
-          description="Delicious hamburger with fresh ingredients"
-          price="R$5.99"
-          imageUrl="/hamburguer.png"
-        />
-        <FoodCard
-          name="Hambúrguer"
-          description="Delicious hamburger with fresh ingredients"
-          price="R$5.99"
-          imageUrl="/hamburguer.png"
-        />
+      <div className="pt-6">
+        <h2 className="text-xl font-semibold ">Pizza</h2>
+        <div className="grid lg:grid-cols-2 items-center mt-2 gap-1 lg:gap-1 ">
+          {pizzaData.map((item, index) => {
+            return (
+              <FoodCardGeral
+                key={index}
+                name={item.name}
+                description={item.description}
+                price={item.price}
+                imageUrl={item.imageUrl}
+              />
+            );
+          })}
+        </div>
+      </div>
+      <div className="pt-6">
+        <h2 className="text-xl font-semibold">Hamburguer</h2>
+        <div className="grid lg:grid-cols-2 items-center mt-2 gap-1 lg:gap-1 ">
+          {hamrburgerData.map((item, index) => {
+            return (
+              <FoodCardGeral
+                key={index}
+                name={item.name}
+                description={item.description}
+                price={item.price}
+                imageUrl={item.imageUrl}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
