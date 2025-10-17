@@ -1,3 +1,4 @@
+import BotaoHome from "../../components/BotaoHome";
 import Header from "../../components/Header";
 import CardPerfil from "./components/CardPerfil";
 
@@ -5,7 +6,10 @@ export default function Profile() {
   return (
     <>
       <Header />
-      <div className="flex justify-center items-start min-h-screen pt-24 bg-gray-50">
+      <div className="pt-24 px-32 bg-gray-50">
+        <BotaoHome />
+      </div>
+      <div className="flex justify-center items-start min-h-screen  bg-gray-50">
         <div className="w-full max-w-2xl px-32 ">
           <h1 className="text-3xl font-semibold text-gray-800 ">Meus dados</h1>
           <CardPerfil
@@ -17,6 +21,10 @@ export default function Profile() {
             subtitulo={"E-mail e Telefone"}
           />
           <CardPerfil titulo={"Endereço"} subtitulo={"Rua, Número, Bairro"} />
+          <CardPerfil
+            titulo={"Pedidos"}
+            subtitulo={"Confira informações dos seus pedidos"}
+          />
         </div>
       </div>
     </>

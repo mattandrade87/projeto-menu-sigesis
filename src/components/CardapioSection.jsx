@@ -1,15 +1,13 @@
 import FoodCardDestaque from "./FoodCardDestaque";
 import FoodCardGeral from "./FoodCardGeral";
-import VejaMaisButton from "./VejaMaisButton";
+
 import { acaiData, hamrburgerData, pizzaData } from "../mock/FoodMock";
 
 export default function CardapioSection() {
   return (
     <div className="mx-auto container  2xl:px-22  px-4 pb-4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold">Destaques da Semana</h1>
-        <VejaMaisButton />
-      </div>
+      <h1 className="text-xl font-bold">Destaques da Semana</h1>
+
       <div className="flex gap-3 mt-2 overflow-x-auto pb-5">
         <FoodCardDestaque
           name="Açai"
