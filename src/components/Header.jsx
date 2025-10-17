@@ -4,20 +4,24 @@ import LoginPopup from "./Login";
 import RegisterPopup from "./Cadastro";
 import { FaShoppingCart } from "react-icons/fa";
 import Link from "next/link";
+import CartDropDown from "./CartDropDown";
 
 export default function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   return (
     <>
-      <header className="bg-zinc-900 text-white flex items-center justify-between px-4 lg:px-24 py-3 shadow-md relative">
-        <div className="flex items-center space-x-2">
-          <span className="text-orange-500 text-2xl">🍽️</span>
-          <h1 className="text-orange-400 font-bold text-xl font-serif">
-            Restaurante
-          </h1>
-        </div>
+      <header className="bg-zinc-900 text-white flex items-center justify-between px-4 lg:px-24 py-3 shadow-md fixed w-full z-100">
+        <Link href="/">
+          <div className="flex items-center space-x-2">
+            <span className="text-orange-500 text-2xl">🍽️</span>
+            <h1 className="text-orange-400 font-bold  md:text-xl font-serif">
+              Restaurante
+            </h1>
+          </div>
+        </Link>
 
         <div className="flex items-center space-x-5">
           <button
@@ -39,7 +43,10 @@ export default function Header() {
             Perfil
           </Link>
 
-          <button className="text-sm cursor-pointer hover:text-orange-400 flex-shrink-0">
+          <button
+            className="text-sm cursor-pointer hover:text-orange-400 flex-shrink-0"
+            onClick={() => setShowCart((prev) => !prev)} //verificar
+          >
             <FaShoppingCart size={23} />
           </button>
         </div>
@@ -47,6 +54,7 @@ export default function Header() {
 
       {showLogin && <LoginPopup onClose={() => setShowLogin(false)} />}
       {showRegister && <RegisterPopup onClose={() => setShowRegister(false)} />}
+      <CartDropDown open={showCart} onClose={() => setShowCart(false)} />
     </>
   );
 }

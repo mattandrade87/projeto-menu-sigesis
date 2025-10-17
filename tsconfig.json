@@ -24,7 +24,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/components/VejaMaisButton.jsx"
+    "src/components/VejaMaisButton.jsx"
   ],
   "exclude": ["node_modules"]
 }
