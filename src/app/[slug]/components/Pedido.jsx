@@ -2,9 +2,15 @@ import Image from "next/image";
 
 export default function Pedido() {
   return (
-    <div className="relative flex p-4  rounded overflow-hidden border border-gray-300">
-      <Image src={"/pizza.jpg"} alt="pizza" width={300} height={300} />
-      <div className="p-8 relative flex flex-col gap-1">
+    <div className="relative flex p-4 flex-col items-center bg-white md:flex-row rounded overflow-hidden border border-gray-300">
+      <Image
+        src={"/pizza.jpg"}
+        alt="pizza"
+        width={300}
+        height={300}
+        className="w-50 h-50 md:w-60 md:h-60"
+      />
+      <div className="p-4 lg:p-8 relative flex flex-col gap-1">
         <h1 className="font-bold text-2xl">Pizza de Calabresa</h1>
         <h2 className="">
           Escolha seu sanduíche com sua proteína favorita (Steak Churrasco ou

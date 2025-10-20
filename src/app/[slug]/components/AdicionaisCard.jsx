@@ -18,15 +18,15 @@ export default function AdicionaisCard({ name, description, price, imageUrl }) {
 
   return (
     <div className="cursor-default">
-      <div className=" bg-white border h-20 border-gray-300 rounded-sm overflow-hidden shadow-lg p-2 px-8 flex items-center justify-between">
-        <div className="relative flex">
+      <div className=" bg-white border  md:h-20 border-gray-300 rounded-sm overflow-hidden shadow-lg p-2 md:px-8 flex items-center justify-between">
+        <div className="relative flex items-center">
           {imageUrl && (
             <Image
               src={imageUrl}
               alt={name}
               width={50}
               height={50}
-              className=" h-24 w-24 lg:h-16 lg:18 object-center rounded"
+              className=" h-20 w-20 lg:h-16 lg:18 object-center rounded"
             />
           )}
           <div className="px-4">
@@ -57,7 +57,7 @@ export default function AdicionaisCard({ name, description, price, imageUrl }) {
 
           <button
             onClick={increment}
-            className="p-2 rounded-full cursor-pointer bg-white hover:bg-orange-100 transition"
+            className="md:p-2 rounded-full cursor-pointer bg-white hover:bg-orange-100 transition"
           >
             <FaPlus className="text-orange-500" size={12} />
           </button>

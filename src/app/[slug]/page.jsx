@@ -13,11 +13,10 @@ export default function Page({ params }) {
     <div>
       <Header />
 
-      <main className="mx-auto container min-h-screen pt-24 max-w-4xl">
-        <BotaoHome />
+      <main className="mx-auto container min-h-screen pt-18 md:pt-24 max-w-4xl p-2">
         <Pedido />
         <Bridge />
-        <div>
+        <div className="grid grid-cols-1">
           <AdicionaisCard
             key={1}
             name="Bacon"
@@ -28,7 +27,6 @@ export default function Page({ params }) {
           <AdicionaisCard
             key={2}
             name="Bacon"
-            description="Hamburguer delicioso com ingredientes frescos"
             price="R$5.99"
             imageUrl="/bacon.jpg"
           />
@@ -37,7 +35,6 @@ export default function Page({ params }) {
             name="Bacon"
             description="Hamburguer delicioso com ingredientes frescos"
             price="R$5.99"
-            imageUrl="/bacon.jpg"
           />
         </div>
         <ConcluirButton />
