@@ -11,16 +11,15 @@ export default function LoginPopup({ onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ email, password });
-    // Aqui você pode chamar sua API de login
   };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-      <div className="bg-gray-800 rounded-2xl shadow-lg p-6 w-[90%] max-w-md relative">
+      <div className="bg-zinc-800 rounded-2xl shadow-lg p-6 w-[90%] max-w-md relative">
         {/* Botão de fechar */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 dark:hover:text-white"
+          className="absolute top-3 right-3 text-white hover:text-gray-800 dark:hover:text-white"
         >
           <IoCloseOutline size={20} />
         </button>
@@ -32,7 +31,7 @@ export default function LoginPopup({ onClose }) {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block text-sm font-medium text-white mb-1">
               Email
             </label>
             <input
@@ -40,14 +39,14 @@ export default function LoginPopup({ onClose }) {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               placeholder="seuemail@exemplo.com"
             />
           </div>
 
           {/* Senha */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block text-sm font-medium text-white mb-1">
               Senha
             </label>
             <div className="relative">
@@ -56,7 +55,7 @@ export default function LoginPopup({ onClose }) {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none pr-10"
+                className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none pr-10"
                 placeholder="Digite sua senha"
               />
               <button

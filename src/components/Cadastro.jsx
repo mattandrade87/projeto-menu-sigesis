@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-// import { Eye, EyeOff, X } from "lucide-react";
 import { IoEye, IoEyeOff, IoCloseOutline } from "react-icons/io5";
 
 export default function RegisterPopup({ onClose }) {
@@ -9,12 +8,41 @@ export default function RegisterPopup({ onClose }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     password: "",
     confirmPassword: "",
+    street: "",
+    number: "",
+    neighborhood: "",
+    city: "",
+    state: "",
   });
 
+  // formata o telefone para (XX) XXXXX-XXXX
+  const formatPhone = (value) => {
+    const onlyNums = value.replace(/\D/g, "");
+    if (onlyNums.length <= 2) return onlyNums;
+    if (onlyNums.length <= 7)
+      return `(${onlyNums.slice(0, 2)}) ${onlyNums.slice(2)}`;
+    if (onlyNums.length <= 11)
+      return `(${onlyNums.slice(0, 2)}) ${onlyNums.slice(
+        2,
+        7
+      )}-${onlyNums.slice(7)}`;
+    return `(${onlyNums.slice(0, 2)}) ${onlyNums.slice(2, 7)}-${onlyNums.slice(
+      7,
+      11
+    )}`;
+  };
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    // aplica a formatação de telefone
+    if (name === "phone") {
+      setFormData({ ...formData, [name]: formatPhone(value) });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -29,7 +57,7 @@ export default function RegisterPopup({ onClose }) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 w-[90%] max-w-md relative">
+      <div className="bg-zinc-800 rounded-2xl shadow-lg p-6 w-[90%] max-w-md relative overflow-y-auto max-h-[90vh]">
         {/* Botão de fechar */}
         <button
           onClick={onClose}
@@ -38,14 +66,14 @@ export default function RegisterPopup({ onClose }) {
           <IoCloseOutline size={20} />
         </button>
 
-        <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800 dark:text-gray-100">
+        <h2 className="text-2xl font-semibold text-center mb-6 text-gray-100">
           Criar conta
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Nome */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block text-sm font-medium text-white mb-1">
               Nome completo
             </label>
             <input
@@ -54,14 +82,14 @@ export default function RegisterPopup({ onClose }) {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               placeholder="Seu nome"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block text-sm font-medium text-white mb-1">
               Email
             </label>
             <input
@@ -70,14 +98,107 @@ export default function RegisterPopup({ onClose }) {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none"
               placeholder="seuemail@exemplo.com"
+            />
+          </div>
+
+          {/* Celular */}
+          <div>
+            <label className="block text-sm font-medium text-white mb-1">
+              Número de celular
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              required
+              maxLength={15}
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+              placeholder="(00) 00000-0000"
+            />
+          </div>
+
+          {/* Endereço */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">
+                Rua
+              </label>
+              <input
+                type="text"
+                name="street"
+                value={formData.street}
+                onChange={handleChange}
+                className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                placeholder="Nome da rua"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">
+                Número
+              </label>
+              <input
+                type="text"
+                name="number"
+                value={formData.number}
+                onChange={handleChange}
+                className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                placeholder="Nº"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">
+                Bairro
+              </label>
+              <input
+                type="text"
+                name="neighborhood"
+                value={formData.neighborhood}
+                onChange={handleChange}
+                className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                placeholder="Bairro"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">
+                Cidade
+              </label>
+              <input
+                type="text"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+                className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                placeholder="Cidade"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-white mb-1">
+              Estado
+            </label>
+            <input
+              type="text"
+              name="state"
+              maxLength={2}
+              value={formData.state.toUpperCase()}
+              onChange={handleChange}
+              className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none uppercase"
+              placeholder="UF"
             />
           </div>
 
           {/* Senha */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block text-sm font-medium text-white mb-1">
               Senha
             </label>
             <div className="relative">
@@ -87,7 +208,7 @@ export default function RegisterPopup({ onClose }) {
                 required
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none pr-10"
+                className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none pr-10"
                 placeholder="Crie uma senha"
               />
               <button
@@ -102,7 +223,7 @@ export default function RegisterPopup({ onClose }) {
 
           {/* Confirmar senha */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block text-sm font-medium text-white mb-1">
               Confirmar senha
             </label>
             <div className="relative">
@@ -112,7 +233,7 @@ export default function RegisterPopup({ onClose }) {
                 required
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none pr-10"
+                className="w-full p-2 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none pr-10"
                 placeholder="Repita sua senha"
               />
               <button
