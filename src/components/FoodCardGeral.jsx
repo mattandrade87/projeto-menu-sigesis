@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function FoodCardGeral({ name, description, price, imageUrl }) {
   return (
-    <Link href={"#"} className="cursor-pointer">
-      <div className="relative bg-white border border-gray-300 rounded-sm overflow-hidden shadow-lg xl:min-w-xl xl:max-w-2xl h-32 p-4">
+    <Link href={"/123"} className="cursor-pointer">
+      <div className="relative bg-white border border-gray-300 rounded-sm overflow-hidden shadow-lg xl:min-w-xl xl:max-w-2xl h-30 p-4">
         <Image
           src={imageUrl}
           alt={name}

@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import LoginPopup from "./Login";
-import RegisterPopup from "./Cadastro";
 import { FaShoppingCart } from "react-icons/fa";
 import Link from "next/link";
 import CartDropDown from "./CartDropDown";
@@ -35,12 +34,13 @@ export default function Header() {
           >
             Login
           </button>
-          <button
+          <Link
+            href="/cadastro"
             className="text-sm cursor-pointer hover:text-orange-400 flex-shrink-0"
             onClick={() => setShowRegister(true)}
           >
             Cadastrar
-          </button>
+          </Link>
           <Link
             href="/perfil"
             className="text-sm cursor-pointer hover:text-orange-400 flex-shrink-0"
@@ -58,7 +58,7 @@ export default function Header() {
       </header>
 
       {showLogin && <LoginPopup onClose={() => setShowLogin(false)} />}
-      {showRegister && <RegisterPopup onClose={() => setShowRegister(false)} />}
+
       <CartDropDown open={showCart} onClose={() => setShowCart(false)} />
     </>
   );
