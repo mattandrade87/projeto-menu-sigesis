@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import AdicionaisCard from "./AdicionaisCard";
+import Textarea from "./Textarea";
 
 export default function AdicionaisSection({
   maxItems = 10,
@@ -8,6 +9,7 @@ export default function AdicionaisSection({
   title = "Adicionais",
 }) {
   const [selected, setSelected] = useState([]);
+  const [text, setText] = useState("");
   const total = selected.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -27,7 +29,7 @@ export default function AdicionaisSection({
   const isLimitReached = totalSelected >= maxItems;
 
   return (
-    <div className="mt-2 border p-4 border-gray-300 rounded bg-white">
+    <div className="border p-4 mb-12 border-gray-300 rounded bg-white">
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
         <span className="text-sm text-gray-600">
@@ -61,11 +63,20 @@ export default function AdicionaisSection({
           );
         })}
       </div>
+      <div className="pt-2">
+        <Textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Observações"
+          rows={5}
+        />
+      </div>
 
-      <div className="mt-4 text-right">
-        <p className="text-lg font-semibold text-gray-900">
-          Total: <span className="text-orange-500">R${total.toFixed(2)}</span>
-        </p>
+      <div className="mt-4">
+        <button className="bg-orange-500 w-full cursor-pointer justify-between flex text-white font-bold py-2 px-4 rounded hover:bg-orange-600 transition">
+          <span>Concluir Pedido</span>
+          <span className="text-white">R${total.toFixed(2)}</span>
+        </button>
       </div>
     </div>
   );

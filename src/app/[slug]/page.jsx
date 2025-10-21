@@ -1,8 +1,8 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Pedido from "./components/Pedido";
-import ConcluirButton from "./components/ConcluirButton";
 import AdicionaisSection from "./components/AdicionaisSection";
+import VoltarButton from "../../components/VoltarButton";
 
 export default function Page({ params }) {
   const mockAdicionais = [
@@ -27,15 +27,32 @@ export default function Page({ params }) {
       price: "2.00",
       imageUrl: "/ovo.jpg",
     },
+    {
+      id: 4,
+      name: "Bacon",
+      description: "Crocante e saboroso",
+      price: "5.99",
+    },
+    {
+      id: 5,
+      name: "Queijo extra",
+      price: "3.50",
+      imageUrl: "/queijo.jpg",
+    },
+    {
+      id: 6,
+      name: "Ovo",
+      price: "2.00",
+    },
   ];
 
   return (
     <div>
       <Header />
       <main className="mx-auto container min-h-screen pt-18 md:pt-24 max-w-4xl p-2">
+        {/* <VoltarButton /> */}
         <Pedido />
         <AdicionaisSection maxItems={10} items={mockAdicionais} />
-        <ConcluirButton />
       </main>
       <Footer />
     </div>

@@ -15,8 +15,7 @@ export default function Header() {
     <>
       <header className="bg-zinc-900 text-white flex items-center justify-between px-4 lg:px-24 py-3 shadow-md fixed w-full z-100">
         <Link href="/">
-          <div className="flex items-center space-x-2">
-            <span className="text-orange-500 text-2xl">🍽️</span>
+          <div className="">
             <h1 className="text-orange-400 font-bold  md:text-xl font-serif">
               Restaurante
             </h1>
@@ -24,6 +23,12 @@ export default function Header() {
         </Link>
 
         <div className="flex items-center space-x-5">
+          <Link
+            href="/"
+            className="text-sm cursor-pointer hover:text-orange-400 flex-shrink-0"
+          >
+            Inicio
+          </Link>
           <button
             className="text-sm cursor-pointer hover:text-orange-400 flex-shrink-0"
             onClick={() => setShowLogin(true)}

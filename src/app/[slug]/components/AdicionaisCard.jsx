@@ -45,7 +45,7 @@ export default function AdicionaisCard({
 
   return (
     <div
-      className={`bg-white border md:h-20 border-gray-300 rounded-sm overflow-hidden shadow-sm p-2 md:px-6 flex items-center justify-between transition`}
+      className={`bg-white border md:h-20 border-gray-300 rounded-sm overflow-hidden p-2 md:px-6 flex items-center justify-between transition`}
     >
       <div className="relative flex items-center">
         {imageUrl && (
@@ -68,11 +68,11 @@ export default function AdicionaisCard({
         </div>
       </div>
 
-      <div className="flex items-center space-x-3 bg-gray-100 rounded-full px-2 py-2 shadow-inner">
+      <div className="flex items-center space-x-3 bg-gray-100 rounded-full px-1 py-1 shadow-inner">
         <button
           onClick={decrement}
           disabled={quantity === 0}
-          className="p-2 rounded-full cursor-pointer bg-white hover:bg-orange-100 transition disabled:opacity-50 disabled:cursor-default"
+          className="p-2 rounded-full cursor-pointer bg-white hover:bg-orange-200 transition disabled:opacity-50 disabled:cursor-default"
           aria-label={`Diminuir ${name}`}
         >
           <FaMinus className="text-orange-500" size={12} />
@@ -88,7 +88,7 @@ export default function AdicionaisCard({
         <button
           onClick={increment}
           disabled={!canIncrement}
-          className="p-2 rounded-full cursor-pointer bg-white hover:bg-orange-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          className="md:p-2 rounded-full cursor-pointer bg-white hover:bg-orange-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label={`Aumentar ${name}`}
           title={!canIncrement ? "Limite atingido" : ""}
         >
