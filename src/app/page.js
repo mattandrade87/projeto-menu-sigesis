@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import CardapioSection from "../components/CardapioSection";
 import InputComponent from "../components/InputComponent";
-import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -11,8 +10,6 @@ export default function Home() {
         <InputComponent placeholder={"Digite o nome do produto"} />
       </div>
       <CardapioSection />
-
-      <Footer />
     </div>
   );
 }

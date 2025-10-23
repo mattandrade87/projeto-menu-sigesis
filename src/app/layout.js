@@ -1,5 +1,5 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import { Roboto } from "next/font/google";
+import Footer from "../components/Footer";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -16,7 +16,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} antialiased`}>{children}</body>
+      <body
+        className={`${roboto.variable} antialiased flex flex-col min-h-screen`}
+      >
+        {/* Conteúdo principal */}
+        <main className="flex-grow">{children}</main>
+
+        {/* Rodapé */}
+        <Footer />
+      </body>
     </html>
   );
 }

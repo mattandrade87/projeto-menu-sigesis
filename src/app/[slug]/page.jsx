@@ -1,5 +1,4 @@
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import Pedido from "./components/Pedido";
 import AdicionaisSection from "./components/AdicionaisSection";
 
@@ -52,7 +51,6 @@ export default function Page({ params }) {
         <Pedido />
         <AdicionaisSection maxItems={10} items={mockAdicionais} />
       </main>
-      <Footer />
     </div>
   );
 }
