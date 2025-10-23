@@ -62,9 +62,11 @@ export default function AdicionaisCard({
           {description && (
             <p className="text-gray-600 text-sm line-clamp-1">{description}</p>
           )}
-          <p className="text-orange-500 font-semibold">
-            R${parsedPrice.toFixed(2)}
-          </p>
+          {price && (
+            <p className="text-orange-500 font-semibold">
+              R${parsedPrice.toFixed(2)}
+            </p>
+          )}
         </div>
       </div>
 

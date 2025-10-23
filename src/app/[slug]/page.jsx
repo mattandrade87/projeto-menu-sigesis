@@ -2,7 +2,6 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Pedido from "./components/Pedido";
 import AdicionaisSection from "./components/AdicionaisSection";
-import VoltarButton from "../../components/VoltarButton";
 
 export default function Page({ params }) {
   const mockAdicionais = [
@@ -42,7 +41,6 @@ export default function Page({ params }) {
     {
       id: 6,
       name: "Ovo",
-      price: "2.00",
     },
   ];
 

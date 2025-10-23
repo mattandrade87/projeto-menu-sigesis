@@ -17,7 +17,7 @@ export default function Pedido() {
           alt="pizza"
           width={300}
           height={300}
-          className="w-60 h-50 md:w-60 md:h-60"
+          className="w-60 h-50 md:w-60 md:h-50 rounded"
         />
         <div className="p-4 lg:p-8 relative flex flex-col gap-1">
           <h1 className="font-bold text-2xl">Pizza de Calabresa</h1>

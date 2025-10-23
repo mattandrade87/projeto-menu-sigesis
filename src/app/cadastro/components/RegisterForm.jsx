@@ -50,11 +50,11 @@ export default function RegisterForm() {
       alert("As senhas não coincidem!");
       return;
     }
-    console.log("Cadastro enviado:", formData);
+    // console.log("Cadastro enviado:", formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-2">
       <InputField
         label="Nome completo"
         name="name"
